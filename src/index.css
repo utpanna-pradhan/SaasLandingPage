@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Sora', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-ink: #07090d;
+  --color-panel: #0e1319;
+  --color-mint: #7cf5c0;
+  --color-violet: #8b7cff;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+body { @apply bg-ink font-sans text-slate-300 antialiased; }
+::selection { background: #7cf5c0; color: #07090d; }
+:focus-visible { outline: 2px solid #7cf5c0; outline-offset: 3px; }
+
+.text-gradient {
+  background: linear-gradient(90deg, #7cf5c0, #8b7cff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.bg-grid {
+  background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-mint px-6 py-3 font-semibold text-ink
+      transition hover:-translate-y-0.5 hover:shadow-[0_8px_30px_-6px_rgba(124,245,192,.6)];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 font-semibold
+      text-white transition hover:-translate-y-0.5 hover:bg-white/5;
+  }
+  .field {
+    @apply w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white outline-none transition
+      placeholder:text-slate-500 focus:border-mint/60 focus:bg-white/[0.06];
+  }
+}
